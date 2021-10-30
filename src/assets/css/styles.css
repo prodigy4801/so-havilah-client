@@ -18740,7 +18740,14 @@ body {
 .static-sidebar-wrapper {
     display: table-cell;
     overflow: hidden;
+    height: 100%;
 }
+/* .static-sidebar-wrapper{
+    position: fixed !important;
+    z-index: 1190;
+    display: table-cell;
+    overflow: hidden;
+} */
 
 .static-sidebar-wrapper,
 .static-sidebar {
