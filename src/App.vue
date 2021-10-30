@@ -1,15 +1,47 @@
-<script setup>
-// This starter template is using Vue 3 <script setup> SFCs
-// Check out https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup
-import HelloWorld from './components/HelloWorld.vue'
-</script>
-
 <template>
-  <img alt="Vue logo" src="./assets/logo.png" />
-  <HelloWorld msg="Hello Vue 3 + Vite" />
+  <header
+      id="topnav"
+      class="navbar navbar-midnightblue navbar-fixed-top clearfix"
+      role="banner"
+      v-if="!authStatus"
+    >
+      <HeaderMenu />
+    </header>
+    <div id="wrapper">
+      <div id="layout-static">
+        <div
+          class="static-sidebar-wrapper sidebar-midnightblue"
+          v-if="!authStatus"
+        >
+          <SideMenu />
+        </div>
+        <div class="static-content-wrapper">
+          <div class="static-content">
+            <router-view />
+          </div>
+          <div>
+            <Footer />
+          </div>
+        </div>
+      </div>
+    </div>
 </template>
 
-<style>
+<script>
+import HeaderMenu from './components/_partial_page/HeaderMenu.vue'
+import SideMenu from './components/_partial_page/SideMenu.vue'
+import Footer from './components/_partial_page/Footer.vue'
+export default {
+  name: 'App',
+  components: {
+    HeaderMenu,
+    SideMenu,
+    Footer
+  }
+}
+</script>
+
+<!-- <style>
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -18,4 +50,4 @@ import HelloWorld from './components/HelloWorld.vue'
   color: #2c3e50;
   margin-top: 60px;
 }
-</style>
+</style> -->
